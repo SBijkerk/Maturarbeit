@@ -1,9 +1,17 @@
+import java.math.BigInteger;
+
 
 public class Benchmark {
 
-
+	// Primzahlen
 	static long maxAnzahlPrimzahlen = 10000;
-	static int fibonacciZahl = 5;
+	
+	// Fibonacci-Zahlen
+	static int fibonacciZahl = 20;
+	
+	// Ackermann-Funktion
+	static BigInteger base = BigInteger.valueOf(3);
+	static BigInteger exp = BigInteger.valueOf(10);
 
 
 	public static void main(String[] args) {
@@ -13,12 +21,14 @@ public class Benchmark {
 
 
 		//benchmark starten
-		PrimzahlenBenchmark benchmark = new PrimzahlenBenchmark(maxAnzahlPrimzahlen);
-		benchmark.primzahlenAusrechnen();
-		FibonacciZahlen fibonacci = new FibonacciZahlen(fibonacciZahl);
-		fibonacci.fibRechnung();
+		PrimzahlenBenchmark prim = new PrimzahlenBenchmark(maxAnzahlPrimzahlen);
+		prim.primzahlenAusrechnen();
+		FibonacciZahlen fib = new FibonacciZahlen(fibonacciZahl);
+		fib.fibRechnung();
+		Ackermann ack = new Ackermann(base, exp);
+		ack.ackermannRechnung();
 
-
+		
 		//zeit stoppen
 		long zeitEnde = System.currentTimeMillis();
 		long zeitGesamt = zeitEnde - zeitStart;
